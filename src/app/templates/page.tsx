@@ -4,6 +4,11 @@ import { useState } from "react";
 import { Crown, Tag, ArrowRight } from "lucide-react";
 import { mockTemplates, templateCategories } from "@/data/mock-templates";
 import Link from "next/link";
+import {
+  PageTransition,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion/animations";
 
 function TemplateCard({
   template,
@@ -76,37 +81,41 @@ export default function TemplatesPage() {
       : mockTemplates.filter((t) => t.category === activeCategory);
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <h1 className="font-heading text-4xl font-extrabold tracking-tight text-[var(--on-surface)] mb-2 italic">
-        템플릿 라이브러리
-      </h1>
-      <p className="text-[var(--on-surface-variant)] font-light mb-10">
-        검증된 고성과 타이틀 패턴을 활용하세요.
-      </p>
+    <PageTransition>
+      <div className="max-w-6xl mx-auto">
+        <h1 className="font-heading text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--on-surface)] mb-2 italic">
+          템플릿 라이브러리
+        </h1>
+        <p className="text-[var(--on-surface-variant)] font-light mb-10 text-sm lg:text-base">
+          검증된 고성과 타이틀 패턴을 활용하세요.
+        </p>
 
-      {/* Category Filter */}
-      <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
-        {templateCategories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
-              activeCategory === cat
-                ? "bg-primary text-[var(--primary-foreground)]"
-                : "bg-[var(--surface-container-high)] text-[var(--on-surface-variant)] hover:text-white"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+        {/* Category Filter */}
+        <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
+          {templateCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-4 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
+                activeCategory === cat
+                  ? "bg-primary text-[var(--primary-foreground)]"
+                  : "bg-[var(--surface-container-high)] text-[var(--on-surface-variant)] hover:text-white"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
 
-      {/* Template Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filtered.map((template) => (
-          <TemplateCard key={template.id} template={template} />
-        ))}
+        {/* Template Grid */}
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filtered.map((template) => (
+            <StaggerItem key={template.id}>
+              <TemplateCard template={template} />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
       </div>
-    </div>
+    </PageTransition>
   );
 }

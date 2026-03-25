@@ -1,3 +1,5 @@
+"use client";
+
 import { TrendingUp, TrendingDown, Flame, BarChart3, Clock } from "lucide-react";
 import {
   mockTrends,
@@ -133,24 +135,38 @@ function TimeHeatmap() {
   );
 }
 
+import {
+  PageTransition,
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/motion/animations";
+
 export default function AnalyticsPage() {
   return (
-    <div className="max-w-6xl mx-auto">
-      <h1 className="font-heading text-4xl font-extrabold tracking-tight text-[var(--on-surface)] mb-2 italic">
-        트렌드 분석
-      </h1>
-      <p className="text-[var(--on-surface-variant)] font-light mb-10">
-        실시간 트렌드와 카테고리별 성과를 분석합니다.
-      </p>
+    <PageTransition>
+      <div className="max-w-6xl mx-auto">
+        <h1 className="font-heading text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--on-surface)] mb-2 italic">
+          트렌드 분석
+        </h1>
+        <p className="text-[var(--on-surface-variant)] font-light mb-10 text-sm lg:text-base">
+          실시간 트렌드와 카테고리별 성과를 분석합니다.
+        </p>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <TrendChart />
-        <CategoryPerfChart />
-      </div>
+        <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <StaggerItem>
+            <TrendChart />
+          </StaggerItem>
+          <StaggerItem>
+            <CategoryPerfChart />
+          </StaggerItem>
+        </StaggerContainer>
 
-      <div className="mt-8">
-        <TimeHeatmap />
+        <StaggerContainer className="mt-8" staggerDelay={0.2}>
+          <StaggerItem>
+            <TimeHeatmap />
+          </StaggerItem>
+        </StaggerContainer>
       </div>
-    </div>
+    </PageTransition>
   );
 }

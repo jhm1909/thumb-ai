@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Sparkles, Copy, Check, Crown, Tag, Lightbulb } from "lucide-react";
 import { getResultsForTopic } from "@/data/mock-generator";
 import type { GeneratorResult } from "@/types";
+import { PageTransition } from "@/components/motion/animations";
 
 function TypingText({ text, speed = 30 }: { text: string; speed?: number }) {
   const [displayed, setDisplayed] = useState("");
@@ -145,13 +146,14 @@ export default function GeneratorPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <h1 className="font-heading text-4xl font-extrabold tracking-tight text-[var(--on-surface)] mb-2 italic">
-        AI 타이틀 생성기
-      </h1>
-      <p className="text-[var(--on-surface-variant)] font-light mb-10">
-        주제를 입력하면 AI가 높은 클릭률의 타이틀 후보를 생성합니다.
-      </p>
+    <PageTransition>
+      <div className="max-w-6xl mx-auto">
+        <h1 className="font-heading text-3xl lg:text-4xl font-extrabold tracking-tight text-[var(--on-surface)] mb-2 italic">
+          AI 타이틀 생성기
+        </h1>
+        <p className="text-[var(--on-surface-variant)] font-light mb-10 text-sm lg:text-base">
+          주제를 입력하면 AI가 높은 클릭률의 타이틀 후보를 생성합니다.
+        </p>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
         {/* Input Section */}
@@ -242,6 +244,7 @@ export default function GeneratorPage() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+    </PageTransition>
   );
 }
