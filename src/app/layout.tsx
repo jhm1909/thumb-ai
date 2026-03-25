@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { AppShell } from "@/components/layout/app-shell";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -32,6 +33,17 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
         <AppShell>{children}</AppShell>
+        <Toaster
+          theme="dark"
+          position="bottom-right"
+          toastOptions={{
+            style: {
+              background: "var(--surface-container-high)",
+              border: "1px solid rgba(255,255,255,0.05)",
+              color: "var(--on-surface)",
+            },
+          }}
+        />
       </body>
     </html>
   );

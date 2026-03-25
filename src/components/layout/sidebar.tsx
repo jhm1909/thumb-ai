@@ -8,6 +8,7 @@ import {
   Zap,
   Library,
   Sparkles,
+  Settings,
   X,
 } from "lucide-react";
 
@@ -16,6 +17,7 @@ const navItems = [
   { label: "프로젝트", href: "/generator", icon: FolderKanban },
   { label: "AI 설정", href: "/analytics", icon: Zap },
   { label: "라이브러리", href: "/templates", icon: Library },
+  { label: "설정", href: "/settings", icon: Settings },
 ];
 
 interface SidebarProps {
