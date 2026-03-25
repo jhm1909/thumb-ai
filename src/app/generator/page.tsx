@@ -226,7 +226,14 @@ export default function GeneratorPage() {
                 <input
                   value={topic}
                   onChange={(e) => setTopic(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+                      e.preventDefault();
+                      handleGenerate();
+                    } else if (e.key === "Enter" && !e.shiftKey) {
+                      handleGenerate();
+                    }
+                  }}
                   type="text"
                   placeholder="예: AI 자동화, 여행 브이로그..."
                   className="w-full bg-[var(--surface-container)] rounded-xl px-4 py-3 text-sm text-white placeholder-[var(--on-surface-variant)]/40 outline-none focus:ring-2 focus:ring-primary/40 border-none transition-shadow"
@@ -240,6 +247,12 @@ export default function GeneratorPage() {
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+                      e.preventDefault();
+                      handleGenerate();
+                    }
+                  }}
                   placeholder="타이틀에 포함할 키워드나 톤을 알려주세요..."
                   rows={3}
                   className="w-full bg-[var(--surface-container)] rounded-xl px-4 py-3 text-sm text-white placeholder-[var(--on-surface-variant)]/40 outline-none focus:ring-2 focus:ring-primary/40 border-none resize-none transition-shadow"
@@ -254,6 +267,9 @@ export default function GeneratorPage() {
                 <Sparkles className="w-5 h-5" />
                 {isGenerating ? "AI가 분석 중..." : "AI로 생성하기"}
               </button>
+              <p className="text-center text-[10px] text-[var(--on-surface-variant)]/40">
+                Ctrl + Enter로 빠르게 생성
+              </p>
             </div>
 
             {/* Tips */}
