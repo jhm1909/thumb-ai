@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Sparkles, Copy, Check, Crown, Tag } from "lucide-react";
+import { Sparkles, Copy, Check, Crown, Tag, Lightbulb } from "lucide-react";
 import { getResultsForTopic } from "@/data/mock-generator";
 import type { GeneratorResult } from "@/types";
 
@@ -189,13 +189,13 @@ export default function GeneratorPage() {
               className="w-full primary-gradient text-white font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Sparkles className="w-5 h-5" />
-              {isGenerating ? "AI가 분석 중..." : "✨ AI로 생성하기"}
+              {isGenerating ? "AI가 분석 중..." : "AI로 생성하기"}
             </button>
           </div>
 
           {/* Tips */}
           <div className="glass-panel rounded-2xl p-5 space-y-3">
-            <h3 className="text-sm font-bold text-primary">💡 팁</h3>
+            <h3 className="text-sm font-bold text-primary flex items-center gap-2"><Lightbulb className="w-4 h-4" /> 팁</h3>
             <ul className="text-xs text-[var(--on-surface-variant)] space-y-2 leading-relaxed">
               <li>• 구체적인 키워드일수록 CTR이 높은 타이틀이 생성됩니다</li>
               <li>• 숫자를 포함하면 클릭률이 평균 36% 높아집니다</li>

@@ -1,4 +1,4 @@
-import { TrendingUp, TrendingDown } from "lucide-react";
+import { TrendingUp, TrendingDown, Flame, BarChart3, Clock } from "lucide-react";
 import {
   mockTrends,
   categoryPerformance,
@@ -10,7 +10,7 @@ function TrendChart() {
   const maxVolume = Math.max(...mockTrends.map((t) => t.volume));
   return (
     <div className="glass-panel rounded-2xl p-6 space-y-5">
-      <h3 className="text-lg font-bold text-white">🔥 인기 키워드 트렌드</h3>
+      <h3 className="text-lg font-bold text-white flex items-center gap-2"><Flame className="w-5 h-5 text-[var(--tertiary)]" /> 인기 키워드 트렌드</h3>
       <div className="space-y-3">
         {mockTrends.map((trend, i) => (
           <div key={trend.id} className="flex items-center gap-4">
@@ -56,7 +56,7 @@ function CategoryPerfChart() {
   const maxCtr = Math.max(...categoryPerformance.map((c) => c.avgCtr));
   return (
     <div className="glass-panel rounded-2xl p-6 space-y-5">
-      <h3 className="text-lg font-bold text-white">📊 카테고리별 평균 CTR</h3>
+      <h3 className="text-lg font-bold text-white flex items-center gap-2"><BarChart3 className="w-5 h-5 text-primary" /> 카테고리별 평균 CTR</h3>
       <div className="space-y-4">
         {categoryPerformance.map((cat) => (
           <div key={cat.category} className="space-y-1.5">
@@ -87,7 +87,7 @@ function TimeHeatmap() {
   const maxVal = Math.max(...postingTimeData.flat());
   return (
     <div className="glass-panel rounded-2xl p-6 space-y-5">
-      <h3 className="text-lg font-bold text-white">🕐 최적 포스팅 시간</h3>
+      <h3 className="text-lg font-bold text-white flex items-center gap-2"><Clock className="w-5 h-5 text-primary" /> 최적 포스팅 시간</h3>
       <p className="text-xs text-[var(--on-surface-variant)]">
         색이 진할수록 높은 참여율을 나타냅니다
       </p>
