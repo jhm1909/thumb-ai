@@ -8,6 +8,7 @@ import {
   Zap,
   Library,
   Sparkles,
+  GitCompareArrows,
   Settings,
   X,
 } from "lucide-react";
@@ -17,6 +18,7 @@ const navItems = [
   { label: "프로젝트", href: "/generator", icon: FolderKanban },
   { label: "AI 설정", href: "/analytics", icon: Zap },
   { label: "라이브러리", href: "/templates", icon: Library },
+  { label: "A/B 테스트", href: "/ab-test", icon: GitCompareArrows },
   { label: "설정", href: "/settings", icon: Settings },
 ];
 

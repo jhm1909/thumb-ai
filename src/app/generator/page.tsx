@@ -7,6 +7,7 @@ import { getResultsForTopic } from "@/data/mock-generator";
 import { getSettings, saveToHistory } from "@/lib/history";
 import type { GeneratorResult } from "@/types";
 import { PageTransition } from "@/components/motion/animations";
+import { PlatformSelector, type Platform } from "@/components/generator/platform-selector";
 
 function TypingText({ text, speed = 30 }: { text: string; speed?: number }) {
   const [displayed, setDisplayed] = useState("");
@@ -125,6 +126,7 @@ function ResultCard({
 export default function GeneratorPage() {
   const [topic, setTopic] = useState("");
   const [description, setDescription] = useState("");
+  const [platform, setPlatform] = useState<Platform>("youtube");
   const [isGenerating, setIsGenerating] = useState(false);
   const [results, setResults] = useState<GeneratorResult[]>([]);
   const [visibleCount, setVisibleCount] = useState(0);
@@ -148,6 +150,7 @@ export default function GeneratorPage() {
           topic,
           description,
           apiKey: settings.apiKey,
+          platform,
         }),
       });
 
@@ -215,6 +218,7 @@ export default function GeneratorPage() {
           {/* Input Section */}
           <div className="lg:col-span-2 space-y-6">
             <div className="glass-panel rounded-2xl p-6 space-y-5">
+              <PlatformSelector selected={platform} onChange={setPlatform} />
               <div className="space-y-2">
                 <label className="text-xs font-bold text-[var(--on-surface-variant)] uppercase tracking-widest">
                   주제 / 키워드
