@@ -41,7 +41,7 @@ export default function DashboardPage() {
         <h2 className="font-heading text-2xl font-bold text-[var(--on-surface)] mb-8">
           주간 성과 인사이트
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6">
           <StatCard
             label="평균 노출 클릭률"
             value={`${mockStats.avgCtr}%`}
