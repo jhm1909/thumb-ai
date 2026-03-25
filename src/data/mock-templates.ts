@@ -1,0 +1,86 @@
+import type { TemplateData } from "@/types";
+
+export const mockTemplates: TemplateData[] = [
+  {
+    id: "1",
+    pattern: '"[충격적 사실]" - [주제] 완벽 가이드',
+    example: '"아무도 모르는 비밀" - 부동산 투자 완벽 가이드',
+    category: "FINANCE",
+    ctr: 9.8,
+    tags: ["충격", "가이드", "비밀"],
+  },
+  {
+    id: "2",
+    pattern: "[연도] 최고의 [제품] TOP [숫자]",
+    example: "2025 최고의 노트북 TOP 5",
+    category: "TECH",
+    ctr: 11.2,
+    tags: ["랭킹", "리뷰", "TOP"],
+  },
+  {
+    id: "3",
+    pattern: "[기간]만에 [성과] 달성한 비결",
+    example: "3개월만에 10kg 감량 달성한 비결",
+    category: "HEALTH",
+    ctr: 8.5,
+    tags: ["성과", "비결", "도전"],
+  },
+  {
+    id: "4",
+    pattern: "[유명인]도 놀란 [주제]의 진실",
+    example: "전문가도 놀란 AI의 진실",
+    category: "TECH",
+    ctr: 10.1,
+    tags: ["놀라움", "진실", "전문가"],
+  },
+  {
+    id: "5",
+    pattern: "이것만 알면 [주제] 마스터 (초보 필수)",
+    example: "이것만 알면 영상 편집 마스터 (초보 필수)",
+    category: "LIFESTYLE",
+    ctr: 7.4,
+    tags: ["초보", "마스터", "필수"],
+  },
+  {
+    id: "6",
+    pattern: "[금액]으로 [성과]하는 방법 (현실적)",
+    example: "50만원으로 캠핑 시작하는 방법 (현실적)",
+    category: "LIFESTYLE",
+    ctr: 6.8,
+    tags: ["가성비", "현실적", "방법"],
+  },
+  {
+    id: "7",
+    pattern: "[주제] 하지 마세요! [대안] 하세요",
+    example: "유산소 하지 마세요! 이 운동 하세요",
+    category: "HEALTH",
+    ctr: 12.3,
+    tags: ["경고", "대안", "반전"],
+  },
+  {
+    id: "8",
+    pattern: "프로 게이머가 추천하는 [제품/세팅]",
+    example: "프로 게이머가 추천하는 마우스 세팅",
+    category: "GAMING",
+    ctr: 9.0,
+    tags: ["프로", "추천", "세팅"],
+  },
+  {
+    id: "9",
+    pattern: "[장소]에서 [기간] 살아본 솔직 후기",
+    example: "제주도에서 한 달 살아본 솔직 후기",
+    category: "VLOG",
+    ctr: 7.9,
+    tags: ["후기", "솔직", "경험"],
+  },
+];
+
+export const templateCategories = [
+  "전체",
+  "TECH",
+  "LIFESTYLE",
+  "GAMING",
+  "HEALTH",
+  "FINANCE",
+  "VLOG",
+];
